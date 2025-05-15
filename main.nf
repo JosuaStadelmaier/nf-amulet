@@ -13,6 +13,8 @@ workflow {
     main:
     ch_input = Channel.fromPath(params.input, checkIfExists: true)
 
+    ch_input.view()
+
     if (!params.skip_translation){
         AMULETY_TRANSLATE(ch_input)
         ch_translation = AMULETY_TRANSLATE.out.translated
