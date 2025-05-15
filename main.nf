@@ -11,7 +11,7 @@ include {AMULETY_ESM} from './modules/amulety_esm'
 workflow {
 
     main:
-    ch_input = Channel.fromPath(params.input + '/*.tsv', checkIfExists: true)
+    ch_input = Channel.fromPath(params.input, checkIfExists: true)
 
     if (!params.skip_translation){
         AMULETY_TRANSLATE(ch_input)
